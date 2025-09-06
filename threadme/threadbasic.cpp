@@ -35,8 +35,10 @@ void threadrun_basic(int enb)
         auto* args = new ThreadHelper::ThreadArgs{ helper, "Hi from thread1" };
         pthread_create(&thread, nullptr, helper->threadFctCallback, args); // Request OS to schedule for this thread
         //POSIX system call to keep main thread alive - affect the whole thread
-        //Exist until received SIGINT from Ctrl + C
-        pause();
+        //Exist until received SIGINT from Ctrl + C - applied for linux system
+        //pause();
+        // for windows system - join the thread
+        pthread_join(thread, nullptr); // Wait for the thread to finish
     }
 }
 }
