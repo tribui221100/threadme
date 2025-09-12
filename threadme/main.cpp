@@ -16,10 +16,11 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     
     //1. Run basic thread
-    threadme::threadrun_basic(1);
+    threadme::threadrun_basic(0);
     
     
     //2. Run joinable threads
-
+    threadme::threadrun_joinable(1);
+    
     return 0;
-}
+} 

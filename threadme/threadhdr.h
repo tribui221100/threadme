@@ -10,8 +10,9 @@
 namespace threadme{
 
 void threadrun_basic(int);
-void threadrun_joinable1(int);
-void threadrun_joinable2(int);
+void threadrun_joinable(int);
+void threadrun_joinable1(void);
+void threadrun_joinable2(void);
 class ThreadHelper
 {
 public:

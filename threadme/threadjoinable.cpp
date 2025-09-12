@@ -13,6 +13,10 @@
 #include <stdlib.h>
 
 namespace threadme {
+
+pthread_t thread1; //Create thread
+pthread_t thread2; //Create thread
+
 class m_threadhelper : public ThreadHelper{
 public:
     void* printMessage(void* arg) override {
@@ -25,25 +29,29 @@ public:
     }
 };
 
-void threadrun_joinable1(int enb)
+void threadrun_joinable1(void)
 {
-    if(enb)
-    {
-        m_threadhelper *helper = new m_threadhelper;
-        pthread_t thread; //Create thread
-        auto args = new ThreadHelper::ThreadArgs{ helper, "Hi from joinable thread1" };
-        pthread_create(&thread, nullptr, helper->threadFctCallback, args);
-    }
+    m_threadhelper *helper = new m_threadhelper;
+    auto args = new ThreadHelper::ThreadArgs{ helper, "Hi from joinable thread1" };
+    pthread_create(&thread1, nullptr, helper->threadFctCallback, args);
 }
 
-void threadrun_joinable2(int enb)
+void threadrun_joinable2(void)
+{
+    m_threadhelper *helper = new m_threadhelper;
+    auto args = new ThreadHelper::ThreadArgs{ helper, "Hi from joinable thread2" };
+    pthread_create(&thread2, nullptr, helper->threadFctCallback, args);
+}
+
+void threadrun_joinable(int enb)
 {
     if(enb)
     {
-        m_threadhelper *helper = new m_threadhelper;
-        pthread_t thread; //Create thread
-        auto args = new ThreadHelper::ThreadArgs{ helper, "Hi from joinable thread2" };
-        pthread_create(&thread, nullptr, helper->threadFctCallback, args);
+        threadrun_joinable1();
+        threadrun_joinable2();
+        
+        pthread_join(thread1, nullptr);
+        pthread_join(thread2, nullptr);
     }
 }
 } //end ns
