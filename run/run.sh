@@ -14,19 +14,8 @@ fi
 
 cd "$app_dir"
 
-# List avalailable cpp files
-echo "Available C++ files in the directory:"
-select cpp_file in *.cpp; do
-    if [ -n "$cpp_file" ]; then 
-        echo "You selected '$cpp_file'"
-        break
-    else
-        echo "Invalid selection. Please try again."
-    fi
-done
-
 # Run the application
-g++ -std=c++11 main.cpp "$cpp_file" -o threadmainrun.exe -lpthread
+g++ -std=c++11 main.cpp threadbasic.cpp threadjoinable.cpp -o threadmainrun.exe -lpthread
 
 #Execute the program
 echo "Running ThreadMe application..."
