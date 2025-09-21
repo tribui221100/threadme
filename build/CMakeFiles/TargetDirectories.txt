@@ -1,0 +1,3 @@
+/Users/bmt2211/Documents/JvMe/threadme/build/CMakeFiles/threadme.dir
+/Users/bmt2211/Documents/JvMe/threadme/build/CMakeFiles/edit_cache.dir
+/Users/bmt2211/Documents/JvMe/threadme/build/CMakeFiles/rebuild_cache.dir

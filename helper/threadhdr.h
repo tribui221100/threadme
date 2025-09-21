@@ -9,10 +9,18 @@
 #define threadhdr_h
 namespace threadme{
 
+/// @brief main thread function
+/// @param int enb enable/disable
 void threadrun_basic(int);
 void threadrun_joinable(int);
+void threadrun_mutex(int);
+void threadrun_cancelation(int,int);
+
+/// @brief child thread function 
+/// @param void 
 void threadrun_joinable1(void);
 void threadrun_joinable2(void);
+
 class ThreadHelper
 {
 public:

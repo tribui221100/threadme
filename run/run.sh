@@ -15,7 +15,7 @@ fi
 cd "$app_dir"
 
 # Run the application
-g++ -std=c++11 main.cpp threadbasic.cpp threadjoinable.cpp -o threadmainrun.exe -lpthread
+g++ -std=c++11 *.cpp -o threadmainrun.exe -lpthread
 
 #Execute the program
 echo "Running ThreadMe application..."

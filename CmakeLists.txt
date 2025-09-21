@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.10)
+project(threadme_project)
+
+# Tell compiler where to look for headers
+include_directories(helper)
+
+# Collect all .cpp files from threadme folder
+file(GLOB THREADME_SOURCES threadme/*.cpp)
+
+# Build executable from all .cpp files
+add_executable(threadme ${THREADME_SOURCES})
+
+# Link pthread
+target_link_libraries(threadme pthread)
